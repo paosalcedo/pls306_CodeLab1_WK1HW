@@ -32,9 +32,13 @@ public class PlayerControlScript : MonoBehaviour {
 //		}
 	}
 
+	GameObject player;
+
 	void Move(Vector3 dir, KeyCode key){
 		if(Input.GetKey(key)){
 			transform.Translate(dir * speed * Time.deltaTime);
+			player = GameObject.Find ("Player1");
+			player.SendMessage ("GenerateCube"); //only generate cubes when player is moving.
 		}
 	}
 }
