@@ -14,6 +14,8 @@ public class PlayerDestroyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		player2.SetActive (true);
+		player1.SetActive (true);
 		ball = GameObject.Find ("TheBall");
 		player2 = GameObject.Find ("Player2");
 		goal2 = GameObject.Find ("Goal2");
@@ -25,12 +27,12 @@ public class PlayerDestroyScript : MonoBehaviour {
 		//find distance between goals and ball. 
 		//if ball is closer to own goal, other player (player 2 here) dies.
 		if(Vector3.Distance(ball.transform.position, transform.position/*goal1 here*/) < radius){
-			Destroy(player2.gameObject);
+			player2.SetActive (false);
 			Debug.Log(player2.name + " DIED!!! OH NOOO!!!!");
 		} 
 
 		if(Vector3.Distance(ball.transform.position, goal2.transform.position) < radius){
-			Destroy(player1.gameObject);
+			player1.SetActive (false);
 			Debug.Log(player1.name + " DIED!!! OH NOOO!!!!");
 		} 
 
