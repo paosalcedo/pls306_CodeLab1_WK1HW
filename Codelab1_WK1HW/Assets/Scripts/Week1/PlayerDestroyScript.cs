@@ -14,19 +14,19 @@ public class PlayerDestroyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player2.SetActive (true);
-		player1.SetActive (true);
 		ball = GameObject.Find ("TheBall");
 		player2 = GameObject.Find ("Player2");
 		goal2 = GameObject.Find ("Goal2");
 		player1 = GameObject.Find ("Player1");
+		player2.SetActive (true);
+		player1.SetActive (true);
 	}
 	
 	// Update is called once per frame
 	void Update () {	
 		//find distance between goals and ball. 
 		//if ball is closer to own goal, other player (player 2 here) dies.
-		if(Vector3.Distance(ball.transform.position, transform.position/*goal1 here*/) < radius){
+		if(Vector3.Distance(ball.transform.position, transform.position) < radius){
 			player2.SetActive (false);
 			Debug.Log(player2.name + " DIED!!! OH NOOO!!!!");
 		} 
